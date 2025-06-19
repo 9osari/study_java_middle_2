@@ -26,5 +26,10 @@ public class AnimalHospitalMainV0 {
         dogHospital.set(dog);
         Dog biggerDog = dogHospital.bigger(new Dog("멍멍2", 300));
         System.out.println("biggerDog = " + biggerDog);
+
+        /**
+         * 코드 재사용 X -> 개 병원과 고양이 병원은 중복이 많이 보인다.
+         * 타입 안정성 O -> 타입 안전성이 명확하게 지켜진다.
+         */
     }
 }
