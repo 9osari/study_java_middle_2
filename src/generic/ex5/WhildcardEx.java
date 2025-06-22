@@ -37,6 +37,7 @@ public class WhildcardEx {
         return t;   //반환까지
     }
 
+    //와일드카드에도 상한을 걸 수 있다.
     static Animal printAndReturnWildcard(Box<? extends Animal> box) {
         Animal animal = box.get();
         System.out.println("이름 = " +animal.getName());
