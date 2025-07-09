@@ -17,6 +17,10 @@ public class ListEx1 {
             list.add(input);
         }
         System.out.println("종료");
-        System.out.println(list);
+        for(int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i));
+            //마지막 인덱스가 아니면 , 출력
+            if(i != list.size() - 1) System.out.print(", ");
+        }
     }
 }
