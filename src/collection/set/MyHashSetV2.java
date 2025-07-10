@@ -55,6 +55,13 @@ public class MyHashSetV2 {
     public boolean contains(Object searchValue) {
         int hashIndex = hashIndex(searchValue); //O(1)
         LinkedList<Object> bucket = bukets[hashIndex]; //O(1)
+        //이 코드가 contains안에 있음 루프를 돌면서 찾음 (equals 사용처)
+        /*for(Object object : bucket) {
+            if(object.equals(searchValue)) {
+                return true;
+            }
+        }
+        return false;*/
         return bucket.contains(searchValue); //O(1) 데이터가 1개만
     }
 
