@@ -1,5 +1,6 @@
 package practiceOOP;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Game {
@@ -8,20 +9,21 @@ public class Game {
     private final Process process = new Process();
 
     public void play() {
-        InputValidator inputValidator = new InputValidator();
-
         System.out.println("Game Start!");
-
+        InputValidator inputValidator = new InputValidator();
         int count = 0;
+
         while (true) {
+            System.out.println("디버깅용 = " + Arrays.toString(computer.getAnswer()));
             System.out.print("input Number (GameCoin = " + count + "): ");
 
-            String input = scanner.nextLine();
+            String inputNum = scanner.nextLine();
+            if(!inputValidator.lenCheck(inputNum)) break;
 
-            if(!inputValidator.lenCheck(input)) continue; //3자리 인지? 확인 후 계속 진행
+            int[] inputDigit = inputNum.chars().map(c -> c - '0').toArray();
 
             count++;
-            String result = process.check(/*computer.getAnswer()*/"123", input); //문제랑 입력값 체크
+            String result = process.check(computer.getAnswer(), inputDigit); //문제랑 입력값 체크
             System.out.println("result = " + result);
             if(result.equals("3S 0B")) {
                 System.out.println("Game End! you Win!");

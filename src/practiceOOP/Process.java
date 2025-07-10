@@ -1,17 +1,21 @@
 package practiceOOP;
 
 public class Process {
-    public String check(String answer, String input) {
+    public String check(int[] answer, int[] input) {
         int strike = 0;
         int ball = 0;
 
         for(int i = 0; i < 3; i++) {
-            if(answer.charAt(i) == input.charAt(i)) {
-                strike++;
-            } else if(answer.contains(String.valueOf(input.charAt(i)))) {
-                ball++;
-            }
+            if(answer[i] == input[i]) strike++; //정답과 입력값 같으면
+            else if(contains(answer, input[i])) ball++;
         }
         return strike + "S " + ball + "B";
+    }
+
+    private boolean contains(int[] answer, int input) {
+        for (int i : answer) {
+            if(i == input) return true;
+        }
+        return false;
     }
 }
